@@ -33,5 +33,6 @@ install_minio_service() {
 EOF
 }
 
-install_minio_service()
+install_minio_service
+
 echo 'Done!'

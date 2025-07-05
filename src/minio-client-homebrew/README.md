@@ -1,12 +1,12 @@
-# MinIO (via Homebrew) (minio-homebrew)
+# MinIO Client (via Homebrew) (minio-homebrew)
 
-MinIO is an in-memory data structure store, used as a distributed, in-memory key-value database, cache and message broker, with optional durability.
+The MinIO Client `mc` command line tool provides a modern alternative to UNIX commands like `ls`, `cat`, `cp`, `mirror`, and `diff` with support for both filesystems and Amazon S3-compatible cloud storage services.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/takahashinguyen/devcontainer-features/minio-homebrew:latest": {},
+    "ghcr.io/TakahashiNguyen/devcontainer-features/minio-client-homebrew:latest": {}
 }
 ```
 

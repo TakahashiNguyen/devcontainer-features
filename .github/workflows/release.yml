@@ -6,8 +6,12 @@ jobs:
   deploy:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+      pull-requests: write
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: "Publish Features"
         uses: devcontainers/action@v1
@@ -15,6 +19,3 @@ jobs:
           publish-features: "true"
           base-path-to-features: ".."
           generate-docs: "true"
-          
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

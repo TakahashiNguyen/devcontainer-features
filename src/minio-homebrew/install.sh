@@ -17,4 +17,7 @@ $nanolayer_location \
     "ghcr.io/devcontainers-extra/features/homebrew-package:1.0.8" \
     --option package='minio' --option version="$VERSION"
 
+cp ./minio /etc/init.d/minio
+mkdir /etc/minio
+
 echo 'Done!'

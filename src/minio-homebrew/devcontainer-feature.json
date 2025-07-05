@@ -1,6 +1,6 @@
 {
     "id": "minio-homebrew",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "name": "MinIO (via Homebrew)",
     "description": "MinIO is a high-performance, S3-compatible object storage solution released under the GNU AGPL v3.0 license. Designed for speed and scalability, it powers AI/ML, analytics, and data-intensive workloads with industry-leading performance.",
     "options": {
@@ -15,5 +15,6 @@
     },
     "installsAfter": [
         "ghcr.io/devcontainers-extra/features/homebrew-package"
-    ]
+    ],
+    "postAttachCommand": "service minio start"
 }

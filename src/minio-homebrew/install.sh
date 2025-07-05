@@ -23,13 +23,15 @@ $nanolayer_location \
     "ghcr.io/devcontainers-extra/features/homebrew-package:1.0.8" \
     --option package='minio' --option version="$VERSION"
 
-cp ./minio /etc/init.d/minio
-mkdir /etc/minio
+install_minio_service() {
+    cp ./minio /etc/init.d/minio
+    mkdir /etc/minio
+    su - "$_REMOTE_USER" <<EOF
+        set -e
 
-su - "$_REMOTE_USER" <<EOF
-	set -e
-
-    useradd minio-user
+        useradd minio-user
 EOF
+}
 
+install_minio_service()
 echo 'Done!'

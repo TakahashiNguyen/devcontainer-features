@@ -6,7 +6,7 @@ MinIO is an in-memory data structure store, used as a distributed, in-memory key
 
 ```json
 "features": {
-    "ghcr.io/TakahashiNguyen/minio-homebrew:1": {}
+    "ghcr.io/TakahashiNguyen/devcontainer-features/minio-homebrew:1": {}
 }
 ```
 

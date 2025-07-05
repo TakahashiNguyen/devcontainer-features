@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if [ "$(id -u)" -ne 0 ]; then
+	echo -e 'Script must be run as
+    root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
+	exit 1
+fi
+
 set -e
 
 source ./library_scripts.sh
@@ -19,5 +25,11 @@ $nanolayer_location \
 
 cp ./minio /etc/init.d/minio
 mkdir /etc/minio
+
+su - "$_REMOTE_USER" <<EOF
+	set -e
+
+    useradd minio-user
+EOF
 
 echo 'Done!'

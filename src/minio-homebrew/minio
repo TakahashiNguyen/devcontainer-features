@@ -13,7 +13,7 @@ DESC="MinIO object storage server"
 NAME=minio
 DAEMON=$(which minio)
 
-DAEMONUSER=minio-user
+DAEMONUSER=$_REMOTE_USER
 PIDFILE=/var/run/$NAME.pid
 
 USERBIND="setcap cap_net_bind_service=+ep"

@@ -22,16 +22,16 @@ STOP_SCHEDULE="${STOP_SCHEDULE:-QUIT/5/TERM/5/KILL/5}"
 test -x $DAEMON || exit 0
 
 # Set MINIOVOLUMES;
-export MINIO_VOLUMES=/mnt/export
-DAEMONOPTS="server ${MINIO_VOLUMES}"
+export MINIO_VOLUMES=/tmp/minio
+DAEMONOPTS="server ${MINIO_VOLUMES} --console-address \":9001\""
 
 # Set the ulimits
 ulimit -n 8192
 
 start() {
     $USERBIND $DAEMON
-    start-stop-daemon --start --quiet --make-pidfile --pidfile $PIDFILE \
-        --background --chuid $DAEMONUSER --oknodo --exec $DAEMON -- $DAEMONOPTS
+    start-stop-daemon --start --background --make-pidfile \
+        --pidfile $PIDFILE --exec $DAEMON -- $DAEMONOPTS
 }
 
 stop() {

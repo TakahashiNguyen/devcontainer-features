@@ -16,6 +16,6 @@
     "installsAfter": [
         "ghcr.io/devcontainers-extra/features/homebrew-package"
     ],
-    "postAttachCommand": "service minio start",
-    "postCreateCommand": "service minio start"
+    "postAttachCommand": "sudo service minio start",
+    "postCreateCommand": "sudo service minio start"
 }

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -ex
 
 if [ "$(id -u)" -ne 0 ]; then
 	echo -e 'Script must be run as
@@ -6,7 +7,6 @@ if [ "$(id -u)" -ne 0 ]; then
 	exit 1
 fi
 
-set -e
 
 source ./library_scripts.sh
 
@@ -20,7 +20,7 @@ ensure_nanolayer nanolayer_location "v0.4.39"
 $nanolayer_location \
     install \
     devcontainer-feature \
-    "ghcr.io/devcontainers-extra/features/homebrew-package:1.0.8" \
+    "ghcr.io/devcontainers-extra/features/homebrew-package:latest" \
     --option package='minio' --option version="$VERSION"
 
 install_minio_service() {

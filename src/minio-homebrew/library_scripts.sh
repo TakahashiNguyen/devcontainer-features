@@ -175,5 +175,3 @@ ensure_nanolayer() {
     declare -g ${variable_name}=$nanolayer_location
 
 }
-
-

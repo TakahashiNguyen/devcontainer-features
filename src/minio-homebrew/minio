@@ -11,7 +11,7 @@
 
 DESC="MinIO object storage server"
 NAME=minio
-DAEMON=$(which minio)
+DAEMON=/home/linuxbrew/.linuxbrew/bin/minio
 
 DAEMONUSER=minio-user
 PIDFILE=/var/run/$NAME.pid

@@ -29,7 +29,7 @@ install_minio_service() {
     su - "$_REMOTE_USER" <<EOF
         set -e
 
-        useradd minio-user
+        sudo useradd minio-user
 EOF
 }
 

@@ -11,23 +11,19 @@
 
 DESC="MinIO object storage server"
 NAME=minio
-DAEMON=/home/linuxbrew/.linuxbrew/bin/minio
-
-DAEMONUSER=minio-user
-PIDFILE=/var/run/$NAME.pid
+DAEMON=$(which minio)
 
 test -x $DAEMON || exit 0
 
 # Set MINIOVOLUMES;
 export MINIO_VOLUMES=/tmp/minio
-DAEMONOPTS="server ${MINIO_VOLUMES} --console-address \":9001\""
+DAEMONOPTS="server ${MINIO_VOLUMES} --console-address :9001"
 
 # Set the ulimits
 ulimit -n 8192
 
 start() {
-    sudo start-stop-daemon --start --background --make-pidfile \
-        --pidfile $PIDFILE --exec $DAEMON -- $DAEMONOPTS
+    start-stop-daemon --start --background --exec $DAEMON -- $DAEMONOPTS
 }
 
 stop() {

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
 if [ "$(id -u)" -ne 0 ]; then
 	echo -e 'Script must be run as
@@ -27,14 +27,10 @@ install_minio_service() {
     cp ./minio /etc/init.d/minio
     mkdir /etc/minio
     su - "$_REMOTE_USER" <<EOF
-        set -ex
+        set -e
 
         sudo useradd minio-user
         sudo chmod +x /etc/init.d/minio
-        sudo ln -s /home/linuxbrew/.linuxbrew/bin/minio /usr/bin/minio
-        if [ -x "/usr/bin/apt-get" ] ; then
-            sudo update-rc.d minio defaults
-        fi
 EOF
 }
 

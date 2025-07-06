@@ -31,7 +31,7 @@ install_minio_service() {
 
         sudo useradd minio-user
         sudo chmod +x /etc/init.d/minio
-        sudo ln -s $(which minio) /usr/bin/minio
+        sudo ln -s /home/linuxbrew/.linuxbrew/bin/minio /usr/bin/minio
         if [ -x "/usr/bin/apt-get" ] ; then
             sudo update-rc.d minio defaults
         fi

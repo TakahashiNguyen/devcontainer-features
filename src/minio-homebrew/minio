@@ -18,12 +18,13 @@ test -x $DAEMON || exit 0
 # Set MINIOVOLUMES;
 export MINIO_VOLUMES=/tmp/minio
 DAEMONOPTS="server ${MINIO_VOLUMES} --console-address :9001"
+PIDFILE=/var/run/$NAME.pid
 
 # Set the ulimits
 ulimit -n 8192
 
 start() {
-    start-stop-daemon --start --background --exec $DAEMON -- $DAEMONOPTS
+    start-stop-daemon --start --background --make-pidfile --pidfile $PIDFILE --exec $DAEMON -- $DAEMONOPTS
 }
 
 stop() {

@@ -23,7 +23,7 @@ DAEMONOPTS="server ${MINIO_VOLUMES} --console-address :9001"
 ulimit -n 8192
 
 start() {
-    start-stop-daemon --start --background --exec $DAEMON -- $DAEMONOPTS >> /var/log/minio.log 2>&1
+    start-stop-daemon --start --background --exec $DAEMON -- $DAEMONOPTS
 }
 
 stop() {

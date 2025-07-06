@@ -16,9 +16,6 @@ DAEMON=/home/linuxbrew/.linuxbrew/bin/minio
 DAEMONUSER=minio-user
 PIDFILE=/var/run/$NAME.pid
 
-USERBIND="setcap cap_net_bind_service=+ep"
-STOP_SCHEDULE="${STOP_SCHEDULE:-QUIT/5/TERM/5/KILL/5}"
-
 test -x $DAEMON || exit 0
 
 # Set MINIOVOLUMES;
@@ -29,15 +26,12 @@ DAEMONOPTS="server ${MINIO_VOLUMES} --console-address \":9001\""
 ulimit -n 8192
 
 start() {
-    $USERBIND $DAEMON
-    start-stop-daemon --start --background --make-pidfile \
+    sudo start-stop-daemon --start --background --make-pidfile \
         --pidfile $PIDFILE --exec $DAEMON -- $DAEMONOPTS
 }
 
 stop() {
-    start-stop-daemon --stop --quiet --pidfile $PIDFILE --retry=$STOP_SCHEDULE \
-        --name $NAME --oknodo
-    rm -f $PIDFILE
+    echo "Unstoppable process"
 }
 
 status() {

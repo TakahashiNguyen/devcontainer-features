@@ -31,6 +31,7 @@ install_minio_service() {
 
         sudo useradd minio-user
         sudo chmod +x /etc/init.d/minio
+        sudo ln -s /home/linuxbrew/.linuxbrew/bin/minio /usr/bin/minio
 EOF
 }
 

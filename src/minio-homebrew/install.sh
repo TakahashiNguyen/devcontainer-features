@@ -30,6 +30,10 @@ install_minio_service() {
         set -e
 
         sudo useradd minio-user
+        sudo chmod +x /etc/init.d/minio
+        if [ -x "/usr/bin/apt-get" ] ; then
+            sudo update-rc.d minio defaults
+        fi
 EOF
 }
 

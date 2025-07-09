@@ -1,0 +1,21 @@
+{
+    "id": "mailpit-homebrew",
+    "version": "2.1.20",
+    "name": "Mailpit (via Homebrew)",
+    "description": "Mailpit is a small, fast, low memory, zero-dependency, multi-platform email testing tool & API for developers.",
+    "options": {
+        "version": {
+            "default": "latest",
+            "description": "Select the version to install.",
+            "proposals": [
+                "latest"
+            ],
+            "type": "string"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers-extra/features/homebrew-package"
+    ],
+    "postAttachCommand": "sudo service mailpit start",
+    "postCreateCommand": "sudo service mailpit start"
+}

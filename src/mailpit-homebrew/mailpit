@@ -11,18 +11,17 @@
 
 DESC="Mailpit email smtp server"
 NAME=mailpit
-DAEMON=$(which brew)
+DAEMON=$(which mailpit)
 
 test -x $DAEMON || exit 0
 
-DAEMONOPTS="services start mailpit"
 PIDFILE=/var/run/$NAME.pid
 
 # Set the ulimits
 ulimit -n 8192
 
 start() {
-    start-stop-daemon --start --background --make-pidfile --pidfile $PIDFILE --exec $DAEMON -- $DAEMONOPTS
+    start-stop-daemon --start --background --make-pidfile --pidfile $PIDFILE --exec $DAEMON
 }
 
 stop() {

@@ -29,7 +29,7 @@ install_mailpit_service() {
         set -e
 
         sudo chmod +x /etc/init.d/mailpit
-        sudo ln -s /home/linuxbrew/.linuxbrew/bin/brew /usr/bin/brew
+        sudo ln -s /home/linuxbrew/.linuxbrew/bin/mailpit /usr/bin/mailpit
 EOF
 }
 

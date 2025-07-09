@@ -1,6 +1,6 @@
 {
     "id": "minio-client-homebrew",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "MinIO Client (via Homebrew)",
     "description": "The MinIO Client `mc` command line tool provides a modern alternative to UNIX commands like `ls`, `cat`, `cp`, `mirror`, and `diff` with support for both filesystems and Amazon S3-compatible cloud storage services.",
     "options": {

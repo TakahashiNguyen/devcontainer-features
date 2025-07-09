@@ -1,6 +1,6 @@
 {
     "id": "mailpit-homebrew",
-    "version": "2.1.20",
+    "version": "1.0.0",
     "name": "Mailpit (via Homebrew)",
     "description": "Mailpit is a small, fast, low memory, zero-dependency, multi-platform email testing tool & API for developers.",
     "options": {

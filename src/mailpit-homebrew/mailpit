@@ -16,12 +16,13 @@ DAEMON=$(which mailpit)
 test -x $DAEMON || exit 0
 
 PIDFILE=/var/run/$NAME.pid
+DAEMONOPTS="__DAEMONOPTS__"
 
 # Set the ulimits
 ulimit -n 8192
 
 start() {
-    start-stop-daemon --start --background --make-pidfile --pidfile $PIDFILE --exec $DAEMON
+    start-stop-daemon --start --background --make-pidfile --pidfile $PIDFILE --exec $DAEMON -- $DAEMONOPTS
 }
 
 stop() {

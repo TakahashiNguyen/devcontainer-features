@@ -23,6 +23,8 @@ $nanolayer_location \
     "ghcr.io/devcontainers-extra/features/homebrew-package:latest" \
     --option package='mailpit' --option version="$VERSION"
 
+sed -i "s|__DAEMONOPTS__|${OPTS}|g" mailpit
+
 install_mailpit_service() {
     cp ./mailpit /etc/init.d/mailpit
     su - "$_REMOTE_USER" <<EOF

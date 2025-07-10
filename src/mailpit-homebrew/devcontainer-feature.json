@@ -1,6 +1,6 @@
 {
     "id": "mailpit-homebrew",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "name": "Mailpit (via Homebrew)",
     "description": "Mailpit is a small, fast, low memory, zero-dependency, multi-platform email testing tool & API for developers.",
     "options": {
@@ -9,6 +9,14 @@
             "description": "Select the version to install.",
             "proposals": [
                 "latest"
+            ],
+            "type": "string"
+        },
+        "options": {
+            "default": "",
+            "description": "Programme execute options.",
+            "proposals": [
+                "", "--compression 3"
             ],
             "type": "string"
         }
